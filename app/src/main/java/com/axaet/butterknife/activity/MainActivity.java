@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.core.LogisticsCenter;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.axaet.butterknife.BuildConfig;
 import com.axaet.butterknife.R;
 import com.axaet.butterknife.application.MyApplication;
 import com.axaet.module.base.common.ARouterURL;
@@ -26,6 +27,10 @@ import butterknife.OnClick;
 @Route(path = ARouterURL.MAIN_ACTIVITY)
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * 不同变体不同数值
+     */
+    public static final boolean THREE_PARTY_LOGIN = BuildConfig.THREE_PARTY_LOGIN;
 
     public static final int REQUEST_CODE = 0x01;
     private static final String TAG = "MainActivity";
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         Application application = MyApplication.getInstance().getApplication();
-        Log.i(TAG, "app name: " + application.getClass().getName());
+        Log.i(TAG, THREE_PARTY_LOGIN + "   app name:  " + application.getClass().getName());
     }
 
 
@@ -60,12 +65,12 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, destination.getName());
                     startActivityForResult(new Intent(this, destination), REQUEST_CODE);
                 } catch (Exception e) {
-                    Toast.makeText(this, "没有其他module", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "没有依赖该module", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.button:
                 ARouter.getInstance().build(ARouterURL.NEWS_MAIN)
-                        .withString("msg", "来自主MainActivity的数据")
+                        .withString("msg", "从主module传递参数给其他module")
                         .withBoolean("boy", true)
                         .navigation();
                 break;

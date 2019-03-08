@@ -28,6 +28,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+
+        }
     }
 
     resourcePrefix 'login_'
@@ -48,19 +51,24 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-//    //创建productFlavors
-//    productFlavors {
-//        login {//配置测试版包名和应用名
-//
-//        }
-//        newUser {//配置生产版包名和应用名
-//
-//        }
-//    }
+    //创建productFlavors
+    if (!isBuildModule){
+        publishNonDefault true
+    }
+    productFlavors {
+        login {//配置测试版包名和应用名
+            dimension "versionCode"
+        }
+        newUser {//配置生产版包名和应用名
+            dimension "versionCode"
+        }
+    }
 }
 
 dependencies {
     api project(':modulebase')
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    //不同变体添加不同依赖
+    newUserImplementation rootProject.ext.dependencies.switch_button
 }

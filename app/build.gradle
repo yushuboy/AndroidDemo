@@ -16,7 +16,7 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
-
+        flavorDimensions "versionCode"
     }
     buildTypes {
         release {
@@ -46,7 +46,27 @@ android {
     aaptOptions {
         cruncherEnabled false
     }
+
+    productFlavors{
+        login {//配置测试版包名和应用名
+            dimension "versionCode"
+            buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
+        }
+        newUser {//配置生产版包名和应用名
+            dimension "versionCode"
+            buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
+        }
+        newLogin{
+            dimension "versionCode"
+            buildConfigField "boolean", "THREE_PARTY_LOGIN", "true"
+            //如果lib中没有改变体，则采用退出策略，从其他变体中获取，优先获取第一个
+            //https://codezjx.com/2017/11/23/gradle-plugin-3-0-0-migration/
+//            matchingFallbacks = ['newUser','login']
+            matchingFallbacks = ['login','newUser']
+        }
+    }
 }
+
 //加速gradle的构建，lint不做检查
 tasks.whenTaskAdded { task ->
     if (task.name.contains("lint") || task.name.contains("lintVitalRelease")) {

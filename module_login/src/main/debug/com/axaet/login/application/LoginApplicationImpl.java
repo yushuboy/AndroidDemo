@@ -19,8 +19,7 @@ public class LoginApplicationImpl implements ApplicationService {
     }
 
     public static LoginApplicationImpl getInstance() {
-        LoginApplicationImpl instance = LoginApplicationHolder.INSTANCE;
-        return instance;
+        return LoginApplicationHolder.INSTANCE;
     }
 
 

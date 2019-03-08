@@ -34,14 +34,10 @@ android {
                 java.srcDirs = ['src/main/java', 'src/main/debug']
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/release']
             }
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
 }
 
 kapt {

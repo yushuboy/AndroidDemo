@@ -16,4 +16,6 @@ public class ARouterURL {
     public static final String NEWS_MAIN = "/news/MainActivity";
 
     public static final String MAIN_ACTIVITY = "/main/MainActivity";
+
+    public static final String NEW_USER_LOGIN_ACTIVITY = "/login/NewUserLoginActivity";
 }

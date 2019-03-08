@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 LogisticsCenter.completion(postcard);
                 Class<?> destination = postcard.getDestination();
                 Intent intent = new Intent(this, destination);
-                intent.putExtra("result", "这是组件返回的结果");
+                intent.putExtra("result", "来自login Module返回的数据");
                 setResult(RESULT_OK, intent);
                 finish();
             } catch (Exception e) {

@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         if (i == R.id.login_button) {
             Toast.makeText(this, "點擊事件1", Toast.LENGTH_SHORT).show();
         } else if (i == R.id.login_button2) {
-//            startActivity(new Intent(this, NewUserLoginActivity.class));
+            ARouter.getInstance().build(ARouterURL.NEW_USER_LOGIN_ACTIVITY)
+                    .navigation();
         }
     }
 }

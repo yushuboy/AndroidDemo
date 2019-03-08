@@ -34,5 +34,7 @@ minifyEnabled    : true,
             //ARouter
             arouter             : 'com.alibaba:arouter-api:1.2.2',
             arouter_compiler    : 'com.alibaba:arouter-compiler:1.2.2',
+
+            switch_button       : 'com.github.zcweng:switch-button:0.0.3@aar',
     ]
 }
