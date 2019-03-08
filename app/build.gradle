@@ -48,10 +48,6 @@ android {
     }
 
     productFlavors{
-        login {//配置测试版包名和应用名
-            dimension "versionCode"
-            buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
-        }
         newUser {//配置生产版包名和应用名
             dimension "versionCode"
             buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
