@@ -1,0 +1,66 @@
+if (isBuildModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        flavorDimensions "versionCode"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    resourcePrefix 'login_'
+
+    sourceSets {
+        main {
+            if (isBuildModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/debug']
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/release']
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    //创建productFlavors
+//    productFlavors {
+//        login {//配置测试版包名和应用名
+//
+//        }
+//        newUser {//配置生产版包名和应用名
+//
+//        }
+//    }
+}
+
+dependencies {
+    api project(':modulebase')
+    annotationProcessor rootProject.ext.dependencies.arouter_compiler
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+}

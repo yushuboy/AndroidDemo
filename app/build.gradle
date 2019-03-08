@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //加速gradle的构建
+    dexOptions {
+        javaMaxHeapSize "4g"
+        //是否支持大工程模式
+        jumboMode = true
+        //预编译
+        preDexLibraries = true
+        //线程数
+        threadCount = 8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    aaptOptions {
+        cruncherEnabled false
+    }
+}
+//加速gradle的构建，lint不做检查
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("lint") || task.name.contains("lintVitalRelease")) {
+        task.enabled = false
+    }
+}
+
+dependencies {
+    if (!isBuildModule.toBoolean()) {
+        implementation project(':module_login')
+        implementation project(':module_news')
+        annotationProcessor rootProject.ext.dependencies.arouter_compiler
+        annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    } else {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        implementation rootProject.ext.dependencies.appcompat
+        implementation rootProject.ext.dependencies.constraintlayout
+        testImplementation rootProject.ext.dependencies.junit
+        androidTestImplementation  rootProject.ext.dependencies.runner
+        androidTestImplementation rootProject.ext.dependencies.espresso_core
+        //butterKnife
+        annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+        //ARouter
+        annotationProcessor rootProject.ext.dependencies.arouter_compiler
+        implementation project(':modulebase')
+    }
+}
