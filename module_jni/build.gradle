@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+                abiFilters "armeabi-v7a", "armeabi", "x86"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    resourcePrefix 'jni_'
+
+    //报错时添加More than one file was found with OS independent path 'lib/armeabi-v7a/libnative-lib.so'
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libnative-lib.so'
+        pickFirst 'lib/armeabi/libnative-lib.so'
+        pickFirst 'lib/x86/libnative-lib.so'
+    }
+
+}
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+    api project(':modulebase')
+    implementation rootProject.ext.dependencies.kotlin_version
+    //ARouter
+    kapt rootProject.ext.dependencies.arouter_compiler
+}

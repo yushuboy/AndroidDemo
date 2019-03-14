@@ -1,1 +1,1 @@
-include ':app', ':module_login', ':module_news', ':modulebase'
+include ':app', ':module_login', ':module_news', ':modulebase', ':module_jni'

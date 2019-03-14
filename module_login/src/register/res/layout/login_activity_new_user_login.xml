@@ -4,25 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.NewUserLoginActivity">
 
-    <Button
-        android:id="@+id/login_button3"
+    <com.suke.widget.SwitchButton
+        android:id="@+id/mSwitchBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登录"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="152dp"
+        app:sb_show_indicator="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/login_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:text="setResult"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="@+id/login_button3"
-        app:layout_constraintTop_toBottomOf="@+id/login_button3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

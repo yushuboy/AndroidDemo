@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btnShow, R.id.button})
+    @OnClick({R.id.btnLoginModule, R.id.btnNewsModule, R.id.btnJniModule})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btnShow:
+            case R.id.btnLoginModule:
                 try {
                     Postcard postcard = ARouter.getInstance().build(ARouterURL.LOGIN_ACTIVITY);
                     LogisticsCenter.completion(postcard);
@@ -68,12 +68,15 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "没有依赖该module", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.button:
+            case R.id.btnNewsModule:
                 ARouter.getInstance().build(ARouterURL.NEWS_MAIN)
                         .withString("msg", "从主module传递参数给其他module")
                         .withBoolean("boy", true)
                         .navigation();
                 break;
+            case R.id.btnJniModule:
+                ARouter.getInstance().build(ARouterURL.JNI_MAIN_ACTIVITY)
+                        .navigation();
             default:
         }
     }

@@ -17,6 +17,9 @@ android {
             }
         }
         flavorDimensions "versionCode"
+        //本次打包，只把 en(英文)、zh-rCN(中文简体)、es（西班牙语）打进保内，其他语言忽略
+        //https://www.cnblogs.com/zhaoyanjun/p/7603640.html
+        resConfigs 'en', 'zh-rCN' ,'es'
     }
     buildTypes {
         release {
@@ -48,7 +51,7 @@ android {
     }
 
     productFlavors{
-        newUser {//配置生产版包名和应用名
+        register {//配置生产版包名和应用名
             dimension "versionCode"
             buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
         }
@@ -57,8 +60,8 @@ android {
             buildConfigField "boolean", "THREE_PARTY_LOGIN", "true"
             //如果lib中没有改变体，则采用退出策略，从其他变体中获取，优先获取第一个
             //https://codezjx.com/2017/11/23/gradle-plugin-3-0-0-migration/
-//            matchingFallbacks = ['newUser','login']
-            matchingFallbacks = ['login','newUser']
+            matchingFallbacks = ['register','login']
+//            matchingFallbacks = ['login','register']
         }
     }
 }
@@ -74,6 +77,7 @@ dependencies {
     if (!isBuildModule.toBoolean()) {
         implementation project(':module_login')
         implementation project(':module_news')
+        implementation project(':module_jni')
         annotationProcessor rootProject.ext.dependencies.arouter_compiler
         annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     } else {
@@ -81,7 +85,7 @@ dependencies {
         implementation rootProject.ext.dependencies.appcompat
         implementation rootProject.ext.dependencies.constraintlayout
         testImplementation rootProject.ext.dependencies.junit
-        androidTestImplementation  rootProject.ext.dependencies.runner
+        androidTestImplementation rootProject.ext.dependencies.runner
         androidTestImplementation rootProject.ext.dependencies.espresso_core
         //butterKnife
         annotationProcessor rootProject.ext.dependencies.butterknife_compiler
@@ -89,4 +93,5 @@ dependencies {
         annotationProcessor rootProject.ext.dependencies.arouter_compiler
         implementation project(':modulebase')
     }
+
 }

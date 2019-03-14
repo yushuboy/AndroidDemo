@@ -51,6 +51,8 @@ public class ReleaseApplicationImpl implements ApplicationService {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return application;

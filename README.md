@@ -46,12 +46,12 @@
                 login {//配置测试版包名和应用名
                     dimension "versionCode"
                 }
-                newUser {//配置生产版包名和应用名
+                register {//配置生产版包名和应用名
                     dimension "versionCode"
                 }
             }''
- - 创建login和newUser两个文件夹，里面的放置不同的代码和资源文件res，文件结构和main里面的一样，打包或调试时它们会合并
- - 不同的变体可以有不同的依赖，newUser变体使用newUserImplementation来独自依赖
+ - 创建login和register两个文件夹，里面的放置不同的代码和资源文件res，文件结构和main里面的一样，打包或调试时它们会合并
+ - 不同的变体可以有不同的依赖，register变体使用registerImplementation来独自依赖
  - 在APP的build.gradle文件依赖其他lib module，使用implementation进行依赖，Gradle plugin 3.0.0+会自动感知并匹配对应的variant（前提是app与library中有对应的variant类型）
  - 当app和lib中的变体不一致时，需要采用回退策略,因为lib中没有newLogin变体，所以从['login','newUser']中选择
  '''
@@ -61,3 +61,11 @@
          }''
 
 
+
+# 7、JNI部分
+ - 在SDK的SDK tool选项中下载LLDB、CMake、NDK
+ - 配置好NDK环境变量
+ - 将ndk版本差异检测过滤掉，在gradle.properties中添加：android.useDeprecatedNdk=true
+ - 创建native方法，并使用javah -jni+类名，创建头文件.h
+ - 把创建好的.h头文件移动到jni目录下，并创建对应的.c文件
+ - 配置module的build.gradle和CMakeLists.txt

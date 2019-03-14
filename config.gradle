@@ -36,5 +36,7 @@ minifyEnabled    : true,
             arouter_compiler    : 'com.alibaba:arouter-compiler:1.2.2',
 
             switch_button       : 'com.github.zcweng:switch-button:0.0.3@aar',
+
+            mmkv       : 'com.tencent:mmkv:1.0.17',
     ]
 }

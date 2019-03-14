@@ -14,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 @Route(path = ARouterURL.NEW_USER_LOGIN_ACTIVITY)
 public class NewUserLoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "NewUserLoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity_new_user_login);
-
     }
 }
