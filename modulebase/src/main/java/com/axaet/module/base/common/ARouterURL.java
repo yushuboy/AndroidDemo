@@ -13,7 +13,7 @@ public class ARouterURL {
 
     public static final String LOGIN_MAIN = "/login/MainActivity";
 
-    public static final String NEWS_MAIN = "/news/MainActivity";
+    public static final String KOTLIN_MAIN_ACTIVITY = "/kotlin/MainActivity";
 
     public static final String MAIN_ACTIVITY = "/main/MainActivity";
 
@@ -21,6 +21,9 @@ public class ARouterURL {
 
 
     public static final String JNI_MAIN_ACTIVITY = "/jni/MainActivity";
+
+
+    public static final String VIEW_MAIN_ACTIVITY = "/view/MainActivity";
 
 
 }

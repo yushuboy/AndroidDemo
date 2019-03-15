@@ -28,7 +28,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //module混淆需要使用consumerProguardFiles属性
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
     resourcePrefix 'jni_'

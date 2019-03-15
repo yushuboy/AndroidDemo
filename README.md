@@ -62,10 +62,18 @@
 
 
 
-# 7、JNI部分
- - 在SDK的SDK tool选项中下载LLDB、CMake、NDK
+# 7、JNI配置部分
+ - JNI是Java和C语言之间相互转换的一套接口，如何Java的String需要转化成C中的char*使用
+ - 在SDK的SDK tool选项中下载LLDB(调试)、CMake(编译)、NDK
  - 配置好NDK环境变量
  - 将ndk版本差异检测过滤掉，在gradle.properties中添加：android.useDeprecatedNdk=true
  - 创建native方法，并使用javah -jni+类名，创建头文件.h
  - 把创建好的.h头文件移动到jni目录下，并创建对应的.c文件
  - 配置module的build.gradle和CMakeLists.txt
+ - Java调用C方法，非静态方法，和对象实例方法
+ - C调用Java方法，通过FindClass获取类对象，通过GetMethodID获取方法ID，具体查看jni_show_dialog.c文件
+ - JNI异常处理
+
+
+ 
+ 

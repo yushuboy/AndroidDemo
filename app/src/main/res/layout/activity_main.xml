@@ -13,18 +13,18 @@
         android:text="login module"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
-        android:id="@+id/btnNewsModule"
+        android:id="@+id/btnKotlinModule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="news module"
+        android:text="kotlin module"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/btnLoginModule"
         app:layout_constraintStart_toStartOf="@+id/btnLoginModule"
@@ -37,9 +37,21 @@
         android:layout_marginTop="28dp"
         android:text="JNI module"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/btnNewsModule"
+        app:layout_constraintEnd_toEndOf="@+id/btnKotlinModule"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btnNewsModule"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewsModule" />
+        app:layout_constraintStart_toStartOf="@+id/btnKotlinModule"
+        app:layout_constraintTop_toBottomOf="@+id/btnKotlinModule" />
+
+    <Button
+        android:id="@+id/btnViewModule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="View module"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/btnJniModule"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/btnJniModule"
+        app:layout_constraintTop_toBottomOf="@+id/btnJniModule" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

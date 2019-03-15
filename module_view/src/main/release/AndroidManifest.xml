@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.axaet.module.view">
+
+    <application>
+        <activity
+            android:name=".MainActivity"
+            android:label="MainActivity" />
+        <activity
+            android:name=".activity.ComplexRecyclerViewActivity"
+            android:label="RecycleView复杂布局" />
+        <activity
+            android:name=".activity.FragmentStackActivity"
+            android:label="单Activity+多Fragment" />
+    </application>
+</manifest>

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btnLoginModule, R.id.btnNewsModule, R.id.btnJniModule})
+    @OnClick({R.id.btnLoginModule, R.id.btnKotlinModule, R.id.btnJniModule,R.id.btnViewModule})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnLoginModule:
@@ -68,14 +68,18 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "没有依赖该module", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btnNewsModule:
-                ARouter.getInstance().build(ARouterURL.NEWS_MAIN)
+            case R.id.btnKotlinModule:
+                ARouter.getInstance().build(ARouterURL.KOTLIN_MAIN_ACTIVITY)
                         .withString("msg", "从主module传递参数给其他module")
                         .withBoolean("boy", true)
                         .navigation();
                 break;
             case R.id.btnJniModule:
                 ARouter.getInstance().build(ARouterURL.JNI_MAIN_ACTIVITY)
+                        .navigation();
+                break;
+            case R.id.btnViewModule:
+                ARouter.getInstance().build(ARouterURL.VIEW_MAIN_ACTIVITY)
                         .navigation();
             default:
         }

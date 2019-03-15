@@ -3,8 +3,8 @@
     package="com.axaet.jni">
 
     <application>
-        <activity android:name=".activity.JniActivity"></activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.JniActivity" android:label="JNI"/>
+        <activity android:name=".activity.MainActivity" android:label="JNI"/>
     </application>
 
 </manifest>

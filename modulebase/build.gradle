@@ -21,7 +21,8 @@ android {
     buildTypes {
         release {
             minifyEnabled rootProject.ext.android.minifyEnabled
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //module混淆需要使用consumerProguardFiles属性
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
@@ -47,4 +48,7 @@ dependencies {
     api rootProject.ext.dependencies.butterknife
     //ARouter
     api rootProject.ext.dependencies.arouter
+    //recyclerView
+    api rootProject.ext.dependencies.recyclerview
+    api rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
 }

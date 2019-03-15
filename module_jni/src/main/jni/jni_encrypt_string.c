@@ -36,7 +36,7 @@ char *Jstring2CStr(JNIEnv *env, jstring jstr) {
 }
 
 
-/*
+/**
  * 加密
  * Class:     com_axaet_jni_activity_EncryptUtil
  * Method:    encrypt
@@ -55,7 +55,7 @@ Java_com_axaet_jni_activity_EncryptUtil_encrypt
     return (*env)->NewStringUTF(env, cstr);
 }
 
-/*
+/**
  * 解密
  * Class:     com_axaet_jni_activity_EncryptUtil
  * Method:    decrypt
@@ -75,7 +75,7 @@ JNIEXPORT jstring JNICALL Java_com_axaet_jni_activity_EncryptUtil_decrypt
     return (*env)->NewStringUTF(env, cstr);
 }
 
-/*
+/**
  * 直接操作指针
  * Class:     com_axaet_jni_activity_EncryptUtil
  * Method:    encodeArray
@@ -97,7 +97,7 @@ JNIEXPORT void JNICALL Java_com_axaet_jni_activity_EncryptUtil_encodeArray
 
 
 
-/*
+/**
  * 复制一份再操作数值
  * Class:     com_axaet_jni_activity_EncryptUtil
  * Method:    encodeReturnArray

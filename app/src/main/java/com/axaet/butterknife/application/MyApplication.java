@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.axaet.butterknife.BuildConfig;
-import com.axaet.login.application.LoginApplicationImpl;
 import com.axaet.module.base.application.ApplicationService;
 
 /**
@@ -45,7 +44,7 @@ public class MyApplication extends Application implements ApplicationService {
 
     @Override
     public void loadModuleApplicationService() {
-        LoginApplicationImpl.getInstance().loadModuleApplicationService();
+//        LoginApplicationImpl.getInstance().loadModuleApplicationService();
     }
 
     @Override
