@@ -54,4 +54,16 @@
         app:layout_constraintStart_toStartOf="@+id/btnJniModule"
         app:layout_constraintTop_toBottomOf="@+id/btnJniModule" />
 
+    <Button
+        android:id="@+id/btnIpc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textAllCaps="false"
+        android:text="IPC module"
+        app:layout_constraintEnd_toEndOf="@+id/btnViewModule"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="@+id/btnViewModule"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewModule" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

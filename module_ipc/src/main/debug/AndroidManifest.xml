@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.axaet.ipc">
+
+    <!--https://blog.csdn.net/ithouse/article/details/75660130 -->
+    <permission
+        android:name="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+    <uses-permission android:name="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE" />
+
+    <application
+        android:name=".application.DebugApplicationImpl"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/ipc_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/ipc_AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="IPC">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AidlActivity"
+            android:label="AIDL" />
+
+        <service
+            android:name=".service.MessengerService"
+            android:process=":RemoteService" />
+        <service
+            android:name=".service.BookManagerService"
+            android:permission="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE"
+            android:process=":BookManagerService" />
+    </application>
+
+</manifest>

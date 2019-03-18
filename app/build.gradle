@@ -79,6 +79,7 @@ dependencies {
         implementation project(':module_kotlin')
         implementation project(':module_jni')
         implementation project(':module_view')
+        implementation project(':module_ipc')
         annotationProcessor rootProject.ext.dependencies.arouter_compiler
         annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     } else {

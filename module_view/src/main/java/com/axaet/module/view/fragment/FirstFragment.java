@@ -23,6 +23,7 @@ public class FirstFragment extends BaseFragment {
 
     private static final String TAG = "yushu";
     private View mRootView;
+    private TextView mTvShow;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -45,13 +46,14 @@ public class FirstFragment extends BaseFragment {
                 tx.commit();
             }
         });
+        mTvShow = mRootView.findViewById(R.id.mTvShow);
         return mRootView;
     }
 
 
     public void showText(String msg) {
-        if (mRootView != null) {
-            ((TextView) mRootView.findViewById(R.id.mTvShow)).setText(msg);
+        if (mTvShow != null) {
+            mTvShow.setText(msg);
         }
     }
 
@@ -61,7 +63,9 @@ public class FirstFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         Log.i(TAG, "FirstFragment onViewCreated: ");
         if (savedInstanceState != null) {
-            int key = savedInstanceState.getInt("key");
+            //重建时恢复数据
+            String key = savedInstanceState.getString("key");
+            mTvShow.setText(key);
             Log.i(TAG, "FirstFragment onViewCreated  key: " + key);
         }
     }
@@ -81,7 +85,11 @@ public class FirstFragment extends BaseFragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "FirstFragment onSaveInstanceState: ");
-        outState.putInt("key", 111);
+        if (mTvShow != null) {
+            //异常销毁时保存数据
+            String msg = mTvShow.getText().toString();
+            outState.putString("key", msg);
+        }
     }
 
     @Override

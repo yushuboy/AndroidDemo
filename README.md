@@ -62,7 +62,8 @@
 
 
 
-# 7、JNI配置部分
+
+# 7、JNI部分
  - JNI是Java和C语言之间相互转换的一套接口，如何Java的String需要转化成C中的char*使用
  - 在SDK的SDK tool选项中下载LLDB(调试)、CMake(编译)、NDK
  - 配置好NDK环境变量
@@ -75,5 +76,14 @@
  - JNI异常处理
 
 
+# 8、View Module部分
+ - RecycleView复杂布局事例
+ - 单Activity+多Fragment，Fragment栈的使用
+ - Activity和Fragment的万能接口通信方式
  
  
+ 
+# 9、IPC部分
+ - Serializable和Parcelable序列化的区别
+ - Messenger的使用
+ - AIDL的使用

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.axaet.ipc">
+
+    <!--https://blog.csdn.net/ithouse/article/details/75660130 -->
+    <permission
+        android:name="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+    <uses-permission android:name="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE" />
+
+    <application>
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="IPC">
+        </activity>
+        <activity
+            android:name=".activity.AidlActivity"
+            android:label="AIDL" />
+        <service
+            android:name=".service.MessengerService"
+            android:process=":RemoteService" />
+        <service
+            android:name=".service.BookManagerService"
+            android:permission="com.axaet.ipc.permission.ACCESS_BOOK_SERVICE"
+            android:process=":BookManagerService" />
+    </application>
+
+</manifest>

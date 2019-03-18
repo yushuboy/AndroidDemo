@@ -26,4 +26,7 @@ public class ARouterURL {
     public static final String VIEW_MAIN_ACTIVITY = "/view/MainActivity";
 
 
+    public static final String IPC_MAIN_ACTIVITY = "/ipc/MainActivity";
+
+
 }

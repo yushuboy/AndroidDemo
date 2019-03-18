@@ -3,7 +3,6 @@ package com.axaet.jni.activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.axaet.jni.R;
@@ -41,14 +40,11 @@ public class JniActivity extends AppCompatActivity {
             Log.i("yushu", "i: " + i);
         }
 
-        findViewById(R.id.btnShowDialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    showDialog();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        findViewById(R.id.btnShowDialog).setOnClickListener(v -> {
+            try {
+                showDialog();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }

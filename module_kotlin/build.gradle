@@ -20,8 +20,10 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            //module混淆需要使用consumerProguardFiles属性
-            consumerProguardFiles 'proguard-rules.pro'
+            if (!isBuildModule.toBoolean()) {
+                //module混淆需要使用consumerProguardFiles属性
+                consumerProguardFiles 'proguard-rules.pro'
+            }
         }
     }
 
@@ -39,6 +41,12 @@ android {
             }
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 kapt {

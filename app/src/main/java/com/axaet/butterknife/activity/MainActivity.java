@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btnLoginModule, R.id.btnKotlinModule, R.id.btnJniModule,R.id.btnViewModule})
+    @OnClick({R.id.btnLoginModule, R.id.btnKotlinModule, R.id.btnJniModule,R.id.btnViewModule,R.id.btnIpc})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnLoginModule:
@@ -81,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnViewModule:
                 ARouter.getInstance().build(ARouterURL.VIEW_MAIN_ACTIVITY)
                         .navigation();
+                break;
+            case R.id.btnIpc:
+                ARouter.getInstance().build(ARouterURL.IPC_MAIN_ACTIVITY)
+                        .navigation();
+                break;
             default:
         }
     }
