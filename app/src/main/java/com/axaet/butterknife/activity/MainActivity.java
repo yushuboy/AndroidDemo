@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 0x01;
     private static final String TAG = "MainActivity";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btnLoginModule, R.id.btnKotlinModule, R.id.btnJniModule,R.id.btnViewModule,R.id.btnIpc})
+    @OnClick({R.id.btnLoginModule, R.id.btnKotlinModule, R.id.btnJniModule, R.id.btnViewModule, R.id.btnIpc})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnLoginModule:

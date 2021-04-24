@@ -1,1 +1,1 @@
-include ':app', ':module_login', ':module_kotlin', ':modulebase', ':module_jni', ':module_view', ':module_ipc'
+include ':app', ':module_login', ':module_kotlin', ':modulebase', ':module_jni', ':module_view', ':module_ipc', ':module_fix', 'lib_rxhttp'

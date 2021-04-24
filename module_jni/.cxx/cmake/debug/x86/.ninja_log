@@ -1,0 +1,5 @@
+# ninja log v5
+6	131	0	build.ninja	6a08cb703e738bae
+3	142	0	CMakeFiles/native-lib.dir/src/main/jni/jni_show_dialog.c.o	44712804d2b8dd5e
+0	151	0	CMakeFiles/native-lib.dir/src/main/jni/jni_encrypt_string.c.o	645f676d240031ca
+151	249	0	../../../../src/main/jniLibs/x86/libnative-lib.so	ea59851e0f458af0

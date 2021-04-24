@@ -1,0 +1,14 @@
+# ninja log v5
+4	272	0	CMakeFiles/native-lib.dir/src/main/jni/jni_show_dialog.c.o	11efa3a75b40afc3
+3	279	0	CMakeFiles/native-lib.dir/src/main/jni/jni_encrypt_string.c.o	cbe6ec63ba4fcb6d
+279	381	0	../../../../src/main/jniLibs/armeabi-v7a/libnative-lib.so	21d19ebf7a1fe55e
+5	621	0	CMakeFiles/native-lib.dir/src/main/jni/jni_show_dialog.c.o	11efa3a75b40afc3
+3	631	0	CMakeFiles/native-lib.dir/src/main/jni/jni_encrypt_string.c.o	cbe6ec63ba4fcb6d
+632	746	0	../../../../src/main/jniLibs/armeabi-v7a/libnative-lib.so	21d19ebf7a1fe55e
+2	497	0	CMakeFiles/native-lib.dir/src/main/jni/jni_show_dialog.c.o	11efa3a75b40afc3
+0	503	0	CMakeFiles/native-lib.dir/src/main/jni/jni_encrypt_string.c.o	cbe6ec63ba4fcb6d
+503	622	0	../../../../src/main/jniLibs/armeabi-v7a/libnative-lib.so	21d19ebf7a1fe55e
+12	150	0	build.ninja	2f168b84e6a815d9
+14	502	0	CMakeFiles/native-lib.dir/src/main/jni/jni_show_dialog.c.o	11efa3a75b40afc3
+14	509	0	CMakeFiles/native-lib.dir/src/main/jni/jni_encrypt_string.c.o	cbe6ec63ba4fcb6d
+510	2253	0	../../../../src/main/jniLibs/armeabi-v7a/libnative-lib.so	e85cc8be28523d2e

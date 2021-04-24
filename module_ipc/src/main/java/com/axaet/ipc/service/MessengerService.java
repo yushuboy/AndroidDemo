@@ -36,6 +36,7 @@ public class MessengerService extends Service {
                     + "   " + Thread.currentThread().getName() + "  key: " + key);
 
             mClientMessenger = msg.replyTo;
+
             postDelayed(() -> {
                 Bundle bundle = new Bundle();
                 bundle.putString("key", "来自服务端的回应");
@@ -49,6 +50,8 @@ public class MessengerService extends Service {
             }, 1000);
         }
     };
+
+
     private final Messenger mServerMessenger = new Messenger(handler);
 
     @Nullable

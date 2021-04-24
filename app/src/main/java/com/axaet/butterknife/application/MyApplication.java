@@ -2,10 +2,13 @@ package com.axaet.butterknife.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.axaet.butterknife.BuildConfig;
+import com.axaet.module.base.BuildConfig;
 import com.axaet.module.base.application.ApplicationService;
+
+import androidx.multidex.MultiDex;
 
 /**
  * date: 2019/3/7
@@ -13,9 +16,24 @@ import com.axaet.module.base.application.ApplicationService;
  * @author yuShu
  */
 public class MyApplication extends Application implements ApplicationService {
+
+
+    private static final String TAG = "MyApplication";
+
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        Log.i(TAG, "attachBaseContext: ");
+        //dex分包
+        MultiDex.install(this);
+        INSTANCE = this;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.i(TAG, "onCreate: ");
         if (BuildConfig.DEBUG) {
             // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog();
@@ -33,12 +51,6 @@ public class MyApplication extends Application implements ApplicationService {
 
     public static MyApplication getInstance() {
         return INSTANCE;
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        INSTANCE = this;
     }
 
 

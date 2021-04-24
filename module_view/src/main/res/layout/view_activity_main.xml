@@ -22,4 +22,13 @@
         android:textAllCaps="false" />
 
 
+    <com.axaet.module.view.widget.MyButton
+        android:id="@+id/btnAboutView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="View参数"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>

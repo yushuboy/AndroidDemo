@@ -1,0 +1,3 @@
+/Users/user/Desktop/DemoProject/module_jni/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/Users/user/Desktop/DemoProject/module_jni/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/Users/user/Desktop/DemoProject/module_jni/.cxx/cmake/debug/x86/CMakeFiles/native-lib.dir

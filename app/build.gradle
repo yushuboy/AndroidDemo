@@ -19,7 +19,9 @@ android {
         flavorDimensions "versionCode"
         //本次打包，只把 en(英文)、zh-rCN(中文简体)、es（西班牙语）打进保内，其他语言忽略
         //https://www.cnblogs.com/zhaoyanjun/p/7603640.html
-        resConfigs 'en', 'zh-rCN' ,'es'
+        resConfigs 'en', 'zh-rCN', 'es'
+        //dex分包
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -50,17 +52,17 @@ android {
         cruncherEnabled false
     }
 
-    productFlavors{
+    productFlavors {
         register {//配置生产版包名和应用名
             dimension "versionCode"
             buildConfigField "boolean", "THREE_PARTY_LOGIN", "false"
         }
-        newLogin{
+        newLogin {
             dimension "versionCode"
             buildConfigField "boolean", "THREE_PARTY_LOGIN", "true"
             //如果lib中没有改变体，则采用退出策略，从其他变体中获取，优先获取第一个
             //https://codezjx.com/2017/11/23/gradle-plugin-3-0-0-migration/
-            matchingFallbacks = ['register','login']
+            matchingFallbacks = ['register', 'login']
 //            matchingFallbacks = ['login','register']
         }
     }
@@ -72,6 +74,27 @@ tasks.whenTaskAdded { task ->
         task.enabled = false
     }
 }
+
+//dex分包，保证某些class在主dex
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = []
+        }
+        //配置每一个dex最大的方法数
+        dx.additionalParameters += '--set-max-idx-number=48000'
+
+        dx.additionalParameters += '--multi-dex'
+        //拆包文件放在该build.gradle同一目录下
+        dx.additionalParameters += "--main-dex-list=$projectDir/multidex.keep".toString()
+
+        //此项添加后第一个classes.dex文件只能包含-main-dex-list列表中class
+//        dx.additionalParameters += '--minimal-main-dex'
+    }
+}
+
 
 dependencies {
     if (!isBuildModule.toBoolean()) {
@@ -95,5 +118,5 @@ dependencies {
         annotationProcessor rootProject.ext.dependencies.arouter_compiler
         implementation project(':modulebase')
     }
-
+    implementation rootProject.ext.dependencies.multidex
 }

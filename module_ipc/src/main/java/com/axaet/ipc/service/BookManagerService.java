@@ -48,6 +48,7 @@ public class BookManagerService extends Service {
             Log.i(TAG, "onBind: 拒绝访问");
             return null;
         }
+        //返回Binder给客户端生成对应的接口
         return mBinder;
     }
 
@@ -97,8 +98,6 @@ public class BookManagerService extends Service {
             }
         }
         //结束遍历
-        mListenerList.finishBroadcast();
-        Log.i(TAG, "onNewBookArrived: " + mListenerList.beginBroadcast());
         mListenerList.finishBroadcast();
     }
 }

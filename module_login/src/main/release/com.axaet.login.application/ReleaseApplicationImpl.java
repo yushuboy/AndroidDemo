@@ -43,14 +43,6 @@ public class ReleaseApplicationImpl implements ApplicationService {
                 Method method = clazz.getMethod(methodName);
                 application = (Application) method.invoke(null);
                 return application;
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             }
