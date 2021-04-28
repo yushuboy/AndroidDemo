@@ -10,16 +10,16 @@
 # 3、创建其他module
  - 在gradle.properties文件中设置isBuildModule=false用于其他该module是lib还是app
  - 修改module的build.gradle文件
- - ```
+ ```
  if (isBuildModule.toBoolean()) {
           apply plugin: 'com.android.application'
       } else {
           apply plugin: 'com.android.library'
       }
-      ```
+   ```
       
   - 在module的main文件下创建debug和release文件夹，并放入对应的文件
-  - ``` 
+ ``` 
    resourcePrefix 'login_'
     sourceSets {
         main {
@@ -32,7 +32,7 @@
             }
         }
     }
-    ```
+  ```
 
 # 4、引入阿里的ARouter路由
  - Java和kotlin两种不同方式的引入
@@ -44,8 +44,8 @@
 
 # 6、不同的变体productFlavors
  - 作为lib的module,设置如下
- - ```
- //创建productFlavors
+ ```
+         //创建productFlavors
             if (!isBuildModule){
                 publishNonDefault true
             }
@@ -57,7 +57,8 @@
                     dimension "versionCode"
                 }
             }
-      ```
+   ```
+   
  - 创建login和register两个文件夹，里面的放置不同的代码和资源文件res，文件结构和main里面的一样，打包或调试时它们会合并
  - 不同的变体可以有不同的依赖，register变体使用registerImplementation来独自依赖
  - 在APP的build.gradle文件依赖其他lib module，使用implementation进行依赖，Gradle plugin 3.0.0+会自动感知并匹配对应的variant（前提是app与library中有对应的variant类型）
@@ -67,7 +68,7 @@
              //https://codezjx.com/2017/11/23/gradle-plugin-3-0-0-migration/
              matchingFallbacks = ['login','newUser']
          }
-    ```
+   ```
 
 # 7、JNI部分
  - JNI是Java和C语言之间相互转换的一套接口，如何Java的String需要转化成C中的char*使用
